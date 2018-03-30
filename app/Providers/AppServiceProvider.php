@@ -18,7 +18,10 @@ class AppServiceProvider extends ServiceProvider
         config()->set("ayarlar", \App\Ayar::lists("value", "name")->all());
 
         $this->app["form"]->component('bsText', 'form_component.text', ['name', 'label_name', 'value' => null, 'attributes' => []]);
+        $this->app["form"]->component('bsFile', 'form_component.file', ['name', 'label_name']);
+        $this->app["form"]->component('bsPassword', 'form_component.password', ['name', 'label_name', 'attributes' => []]);
         $this->app["form"]->component('bsSubmit', 'form_component.submit', ['name', 'url' => URL::previous()]);
+        $this->app["form"]->component('bsCheckbox', 'form_component.checkbox', ['name', 'label_name', 'elemanlar' => []]);
     }
 
     /**
