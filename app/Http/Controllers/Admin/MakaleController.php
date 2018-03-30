@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Kategori;
+use App\Makale;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 
 class MakaleController extends Controller
@@ -16,7 +19,8 @@ class MakaleController extends Controller
      */
     public function index()
     {
-        //
+        $makaleler = Makale::orderBy("created_at", "desc")->paginate(10);
+        return view("admin.makale_index", compact('makaleler'));
     }
 
     /**
@@ -26,9 +30,9 @@ class MakaleController extends Controller
      */
     public function create()
     {
-        $kategoriler = Kategori::lists("baslik","id")->all();
+        $kategoriler = Kategori::lists("baslik", "id")->all();
 
-        return view("admin.makale_index",compact('kategoriler'));
+        return view("admin.makale_create", compact('kategoriler'));
     }
 
     /**
@@ -39,7 +43,25 @@ class MakaleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            "baslik" => "required|max:255",
+            "kategori_id" => "required",
+            "icerik" => "required"
+
+        ]);
+
+        $request->merge([
+            'slug' => str_slug($request->baslik),
+            'user_id' => Auth::user()->id,
+            'durum' => 0
+        ]);
+        $input = $request->all();
+
+
+        $makale = Makale::create($input);
+
+        Session::flash("durum", 1);
+        return redirect("/makale");
     }
 
     /**

@@ -1,14 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 
 <head>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{!! config("ayarlar.aciklama") !!}">
     <meta name="keywords" content="{!! config("ayarlar.keywords") !!}">
     <meta name="author" content="{!! config("ayarlar.author") !!}">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+
 
     <title> {!!config("ayarlar.baslik") !!}</title>
     <!-- Bootstrap Core CSS -->
@@ -17,9 +23,7 @@
     <link href="{{asset("css/toastr.min.css")}}" rel="stylesheet">
     <link href="{{asset("css/bootstrap-switch.min.css")}}" rel="stylesheet">
     <!-- Latest compiled and minified CSS -->
-    <link href="{{asset("vendor/summernote/summernote.css")}}" rel="stylesheet" type="text/css">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{asset("css/Footer-with-logo.css")}}">
@@ -37,8 +41,8 @@
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <!-- include summernote css/js -->
+
     <![endif]-->
 
     <script>
@@ -83,16 +87,11 @@
                                             Talepleri</a></li>
                                     <li class="divider"></li>
                                 @endif
-                                @if(Auth::user()->yetkisi_var_mi("standart"))
-                                    <li><a href="{{ url('/makalem') }}"><i class="fa fa-btn fa-list"></i>Makalelerim</a>
+                                @if(Auth::user()->yetkisi_var_mi("admin"))
+                                    <li><a href="{{ url('/makale') }}"><i class="fa fa-btn fa-list"></i>Makalelerim</a>
                                     </li>
-                                    <li><a href="{{ url('/makalem/create') }}"><i class="fa fa-btn fa-plus"></i>Yeni
+                                    <li><a href="{{ url('/makale/create') }}"><i class="fa fa-btn fa-plus"></i>Yeni
                                             Makale Ekle</a></li>
-                                @endif
-                                @if(!Auth::user()->yetkisi_var_mi("admin") && !Auth::user()->yetkisi_var_mi("standart"))
-                                <!-- Adminlik kontrolü -->
-                                    <li><a href="{{ url('/yetki-talebi') }}"><i class="fa fa-btn fa-envelope"></i>Yetki
-                                            Talebi</a></li>
                                 @endif
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Çıkış</a></li>
                             </ul>
@@ -196,8 +195,10 @@
 </footer>
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
 <!-- jQuery -->
 <script src="{{asset("vendor/jquery/jquery.min.js")}}"></script>
 
@@ -214,9 +215,6 @@
 <script src="{{asset("js/laravel-delete.js")}}"></script>
 <script src="{{asset("js/clean-blog.js")}}"></script>
 <script src="{{asset("js/custom.js")}}"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-
 
 </body>
 

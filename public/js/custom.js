@@ -47,13 +47,12 @@ $(function(){
     $('[data-toggle="tooltip"]').tooltip();
 
 
-
-    $('.summernote').summernote({
-        height: 300,
-        lang: 'tr-TR'
+    $(document).ready(function() {
+        $('#summernote').summernote();
     });
 
-    $('.selectpicker').selectpicker({
+
+    $('#selectpicker').selectpicker({
         style: 'btn-default'
     });
     //
