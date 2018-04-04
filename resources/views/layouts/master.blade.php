@@ -4,21 +4,21 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{!! config("ayarlar.aciklama") !!}">
     <meta name="keywords" content="{!! config("ayarlar.keywords") !!}">
     <meta name="author" content="{!! config("ayarlar.author") !!}">
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
 
+    <script src="{{asset("vendor/jquery/jquery.js")}}"></script>
+
+
+    <link rel="stylesheet" href="{{asset("css/custom.css")}}">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
 
     <title> {!!config("ayarlar.baslik") !!}</title>
     <!-- Bootstrap Core CSS -->
-    <link href="{{asset("vendor/bootstrap/css/bootstrap.min.css")}}" rel="stylesheet">
+    <link href="{{asset("css/modern-business.css")}}" rel="stylesheet">
     <!-- Theme CSS -->
     <link href="{{asset("css/toastr.min.css")}}" rel="stylesheet">
     <link href="{{asset("css/bootstrap-switch.min.css")}}" rel="stylesheet">
@@ -27,107 +27,72 @@
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{asset("css/Footer-with-logo.css")}}">
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/css/bootstrap-select.min.css">
-    <link href="{{asset("css/clean-blog.css")}}" rel="stylesheet">
+
     <!-- Custom Fonts -->
     <link href="{{asset("vendor/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet'
           type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
           rel='stylesheet' type='text/css'>
-    <link href="{{asset("css/custom.css")}}" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <!-- include summernote css/js -->
+    <script src="{{asset("js/bootstrap.js")}}"></script>
 
     <![endif]-->
 
     <script>
         window.csrfToken = " {{ csrf_token() }}";
     </script>
-    <script>
-        window.csrfToken = " {{ csrf_field() }}";
-    </script>
 </head>
-
 
 <body data-status="{{Session::get("durum")}}">
 
+
 <!-- Navigation -->
 
-<nav class="navbar navbar-default navbar-fixed-top">
-
-    <div class="container-fluid" id="topbar">
-        <div class="row">
-            <div class="col-md-12">
-                <ul>
-                    <li><a href="/"><i class="fa fa-home"></i>Ana Sayfa</a></li>
-                    @if(Auth::guest())
-                        <li><a href="/login" class="uyelik-tus"><i class="fa fa-sign-in"></i> Üye Girişi</a></li>
-                        <li><a href="/register" class="uyelik-tus"><i class="fa fa-users"></i> Üye Ol</a></li>
-                    @else
-                        <li class="ddown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                               aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
-
-                            <ul class="ddown-menu ddown-menu-right" role="menu">
-                                @if(Auth::user()->yetkisi_var_mi("admin"))
-                                    <li><a href="{{ url('/site-ayarlari') }}"><i class="fa fa-btn fa-wrench"></i>Site
-                                            Ayarları</a></li>
-                                    <li><a href="{{ url('/user') }}"><i class="fa fa-btn fa-users"></i>Kullanıcılar</a>
-                                    </li>
-                                    <li><a href="{{ url('/kategori') }}"><i
-                                                    class="fa fa-btn fa-cube"></i>Kategoriler</a></li>
-                                    <li><a href="{{ url('/makale') }}"><i class="fa fa-btn fa-list-ol"></i>Tüm Makaleler</a>
-                                    </li>
-                                    <li><a href="{{ url('/talep') }}"><i class="fa fa-btn fa-envelope-o"></i>Yazarlık
-                                            Talepleri</a></li>
-                                    <li class="divider"></li>
-                                @endif
-                                @if(Auth::user()->yetkisi_var_mi("admin"))
-                                    <li><a href="{{ url('/makale') }}"><i class="fa fa-btn fa-list"></i>Makalelerim</a>
-                                    </li>
-                                    <li><a href="{{ url('/makale/create') }}"><i class="fa fa-btn fa-plus"></i>Yeni
-                                            Makale Ekle</a></li>
-                                @endif
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Çıkış</a></li>
-                            </ul>
-                        </li>
-                    @endif
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="container-fluid">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
             <a href="{!! config("ayarlar.baslik") !!}}" class=""></a>
             <img src="{{asset("img/bau2.png")}}" alt="" class="navbar-brand" width="150px"
                  style="padding: 0px; margin-left: 15px;margin-top: 10px">
         </div>
-        <ul class="nav navbar-nav" style="float: right;">
-            @foreach(App\Kategori::all() as $kategori)
-                <li class="ddown">
-                    <button href="/kategoriler/{{$kategori->slug}}" class="dbtn">{{$kategori->baslik}}</button>
-                    <ul class="ddown-content">
-                        @foreach(App\Makale::where("kategori_id", $kategori->id)->where("durum", 1)->orderBy("created_at", "desc")->paginate(10) as $makale)
-                            <li>
-                                <a href="/{{$makale->slug}}">{{$makale->baslik}}</a>
-                            </li>
-                        @endforeach
-                    </ul>
-                </li>
-            @endforeach
-        </ul>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                @foreach(App\Kategori::all() as $kategori)
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{$kategori->baslik}}<b
+                                    class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            @foreach(App\Makale::where("kategori_id", $kategori->id)->where("durum", 1)->orderBy("created_at", "desc")->paginate(10) as $makale)
+                                <li>
+                                    <a href="/{{$makale->slug}}">{{$makale->baslik}}</a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </li>
+                @endforeach
+                <li><a href="/EN">EN</a></li>
+            </ul>
+        </div>
     </div>
 </nav>
 
 <!-- /.navbar-collapse -->
+
+
 <!-- Page Header -->
 <header class="intro-header" style="background-image: url({{asset('img/home-bg.jpg')}})">
     <div class="container">
@@ -148,9 +113,10 @@
 
 
 <hr>
+
 <!-- Footer -->
-<footer id="myFooter">
-    <div class="container">
+<footer>
+    <div class="containe myfooter">
         <div class="row">
             <div class="col-sm-3 col-sm-offset-1    ">
                 <ul>
@@ -181,14 +147,14 @@
 </footer>
 
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="{{asset("js/bootstrap.min.js")}}"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
 <!-- jQuery -->
-<script src="{{asset("vendor/jquery/jquery.min.js")}}"></script>
+<script src="{{asset("vendor/jquery/jquery.js")}}"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="{{asset("vendor/bootstrap/js/bootstrap.min.js")}}"></script>
 <script src="{{asset("js/toastr.min.js")}}"></script>
 
 <!-- Theme JavaScript -->
@@ -196,10 +162,9 @@
 <script src="{{asset("vendor/summernote/lang/summernote-tr-TR.js")}}"></script>
 <script src="{{asset("js/bootstrap-switch.min.js")}}"></script>
 <!-- Latest compiled and minified JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/js/bootstrap-select.min.js"></script>
 <script src="{{asset("js/laravel-delete.js")}}"></script>
-<script src="{{asset("js/clean-blog.js")}}"></script>
 <script type='text/javascript' src="{{asset("js/custom.js")}}"></script>
+
 
 </body>
 

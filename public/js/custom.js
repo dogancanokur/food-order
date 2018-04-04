@@ -1,10 +1,10 @@
 $.ajaxSetup({
     headers: {
-        'X-CSRF-TOKEN':csrfToken
+        'X-CSRF-TOKEN': csrfToken
     }
 });
 
-$(function(){
+$(function () {
     toastr.options = {
         "closeButton": true,
         "debug": false,
@@ -24,8 +24,7 @@ $(function(){
     }
     var durum = parseInt($("body").data("status"));
 
-    switch (durum)
-    {
+    switch (durum) {
         case 0 :
             toastr.error('Hata oluştu');
             break;
@@ -41,13 +40,12 @@ $(function(){
             break;
 
 
-
     }
     //
     $('[data-toggle="tooltip"]').tooltip();
 
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('#summernote').summernote();
     });
 
@@ -59,17 +57,17 @@ $(function(){
     $(".durum").bootstrapSwitch();
     //
 
-    $(".durum").on('switchChange.bootstrapSwitch', function(event, state) {
+    $(".durum").on('switchChange.bootstrapSwitch', function (event, state) {
         console.log(this); // DOM element
         console.log(event); // jQuery event
         console.log(state); // true | false
 
         $.ajax({
-            data: {"durum": state,"id":$(this).data("id") },
+            data: {"durum": state, "id": $(this).data("id")},
             type: "POST",
             url: $(this).data("url"),
 
-            success: function(url) {
+            success: function (url) {
                 //alert('Success');
 
             }
@@ -77,7 +75,4 @@ $(function(){
     });
 
 
-
-
-
-})
+});
