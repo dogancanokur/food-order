@@ -46,7 +46,8 @@ class KategoriController extends Controller
         ]);
 
         $request->merge([
-            'slug' => str_slug($request->baslik)
+            'slug' => str_slug($request->baslik),
+            'enslug' => str_slug($request->enbaslik)
         ]);
         $kategori = Kategori::create($request->all());
 
@@ -109,7 +110,8 @@ class KategoriController extends Controller
         ]);
 //SLUG EKLEME
         $request->merge([
-            'slug' => str_slug($request->baslik)
+            'slug' => str_slug($request->baslik),
+            'enslug' => str_slug($request->enbaslik)
         ]);
 
         $kategori = Kategori::find($id);

@@ -23,8 +23,10 @@
                         <!--
                                    <th>Resim</th>
                         -->
-                        <th>Başlık</th>
-                        <th>Slug</th>
+                        <th>Türkçe Başlık</th>
+                        <th>Türkçe Slug</th>
+                        <th>İnglizce Başlık</th>
+                        <th>İngilizce Slug</th>
                         <th>Eylem</th>
                     </tr>
                     </thead>
@@ -35,6 +37,8 @@
 
                             <td>{{$kategori->baslik}}</td>
                             <td>{{$kategori->slug}}</td>
+                            <td>{{$kategori->enbaslik}}</td>
+                            <td>{{$kategori->enslug}}</td>
 
                             <td>
                                 <a href="/kategori/{{$kategori->id}}/edit" class="btn btn-primary eylem"

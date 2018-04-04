@@ -13,6 +13,7 @@
                         {!! Form::open(["url" => "/kategori", "method" => "post","files" => true]) !!}
 
                         {!! Form::bsText("baslik","Başlık") !!}
+                        {!! Form::bsText("enbaslik","İngilizce Başlık") !!}
                         {!! Form::bsSubmit("Kaydet") !!}
 
                         {!! Form::close() !!}

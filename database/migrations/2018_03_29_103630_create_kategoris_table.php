@@ -15,7 +15,9 @@ class CreateKategorisTable extends Migration
         Schema::create('kategoriler', function (Blueprint $table) {
             $table->increments('id');
             $table->string('baslik');
+            $table->string('enbaslik');
             $table->string('slug');
+            $table->string('enslug');
             $table->timestamps();
         });
     }

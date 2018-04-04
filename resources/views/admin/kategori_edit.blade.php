@@ -15,6 +15,7 @@
 
 
                         {!! Form::bsText("baslik","Başlık") !!}
+                        {!! Form::bsText("enbaslik","İngilizce Başlık") !!}
 
                         {!! Form::bsSubmit("Kaydet") !!}
 

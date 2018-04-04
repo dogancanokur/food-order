@@ -10,7 +10,13 @@ class Kategori extends Model
 
     protected $table = "kategoriler";
 
-    protected $fillable = ["baslik", "slug"];
+    protected $fillable = [
+        "baslik",
+        "slug",
+
+        "enbaslik",
+        "enslug"
+    ];
 
     //  protected $appends = ["kucuk_resim"];
 //
