@@ -14,8 +14,10 @@
                 <table class="table table-hover table-bordered">
                     <thead>
                     <tr>
-                        <th>Başlık</th>
-                        <th>Slug</th>
+                        <th>Türkçe Başlık</th>
+                        <th>Türkçe Slug</th>
+                        <th>İnglizce Başlık</th>
+                        <th>İnglizce Slug</th>
                         <th>Kategori</th>
                         <th>Yazar</th>
                         <th>Yayınlanma Tarihi</th>
@@ -27,6 +29,8 @@
                         <tr>
                             <td>{{$makale->baslik}}</td>
                             <td>{{$makale->slug}}</td>
+                            <td>{{$makale->enbaslik}}</td>
+                            <td>{{$makale->enslug}}</td>
                             <td>{{$makale->kategori->baslik}}</td>
                             <td>{{$makale->user->name}}</td>
                             <td>{{$makale->created_at->diffForHumans()}}</td>

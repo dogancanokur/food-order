@@ -18,9 +18,11 @@
 
                 {!! Form::open(["url" => "/makale" ,"method" => "post", "files" => true]) !!}
 
-                {!! Form::bsText("baslik","Başlık") !!}
+                {!! Form::bsText("baslik","Türkçe Başlık") !!}
+                {!! Form::bsText("enbaslik","İnglizce Başlık") !!}
                 {!! Form::bsSelect("kategori_id","Kategori",null,$kategoriler,"Lütfen bir kategori seçiniz") !!}
-                {!! Form::bsTextArea("icerik","İçerik",null,["id" => "summernote"]) !!}
+                {!! Form::bsTextArea("icerik","Türkçe İçerik",null,["id" => "summernote"]) !!}
+                {!! Form::bsTextArea("enicerik","İngilizce İçerik",null,["id" => "summernote"]) !!}
 
 
                 {!! Form::bsSubmit("KAYDET") !!}

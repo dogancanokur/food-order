@@ -16,8 +16,11 @@ class CreateMakalesTable extends Migration
         Schema::create('makaleler', function (Blueprint $table) {
             $table->increments('id');
             $table->string('baslik');
+            $table->string('enbaslik');
             $table->string('slug');
+            $table->string('enslug');
             $table->text('icerik');
+            $table->text('enicerik');
             $table->integer('kategori_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->tinyInteger('durum');

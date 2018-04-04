@@ -52,6 +52,7 @@ class MakaleController extends Controller
 
         $request->merge([
             'slug' => str_slug($request->baslik),
+            'enslug' => str_slug($request->enbaslik),
             'user_id' => Auth::user()->id,
             'durum' => 1
             //durum için switch yapılabilir ajaxla
