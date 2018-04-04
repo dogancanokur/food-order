@@ -1,7 +1,6 @@
 <?php
 
 namespace App;
-use Illuminate\Support\Str;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,18 +12,18 @@ class Kategori extends Model
 
     protected $fillable = ["baslik", "slug"];
 
-  //  protected $appends = ["kucuk_resim"];
+    //  protected $appends = ["kucuk_resim"];
 //
-  //  public function resim()
-  //  {
-  //      return $this->morphOne("App\Resim","imageable");
-  //  }
+    //  public function resim()
+    //  {
+    //      return $this->morphOne("App\Resim","imageable");
+    //  }
 //
-  //  public function getKucukResimAttribute()
-  //  {
-  //      $resim = asset("uploads/thumb_".$this->resim()->first()->isim);
-  //      return '<img src="'.$resim.'" class="img-thumbnail" width="150" />';
-  //  }
+    //  public function getKucukResimAttribute()
+    //  {
+    //      $resim = asset("uploads/thumb_".$this->resim()->first()->isim);
+    //      return '<img src="'.$resim.'" class="img-thumbnail" width="150" />';
+    //  }
 
 
 }

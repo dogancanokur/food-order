@@ -58,6 +58,7 @@
 
 <!-- Navigation -->
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
     <div class="container-fluid" id="topbar">
         <div class="row">
             <div class="col-md-12">
@@ -109,34 +110,25 @@
                 <span class="sr-only">Toggle navigation</span>
                 Menu <i class="fa fa-bars"></i>
             </button>
-            <a href="{!! config("ayarlar.baslik") !!}}" class=""></a><img src="{{asset("img/bau2.jpg")}}" alt=""
-                                                                          class="navbar-brand" width="150px"
-                                                                          style="padding: 0px; margin-left: 15px;margin-top: 10px">
-
+            <a href="{!! config("ayarlar.baslik") !!}}" class=""></a>
+            <img src="{{asset("img/bau2.png")}}" alt="" class="navbar-brand" width="150px"
+                 style="padding: 0px; margin-left: 15px;margin-top: 10px">
+    q
         </div>
-
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="index.html">Home</a>
-                </li>
-                <li>
-                    <a href="about.html">About</a>
-                </li>
-                <li>
-                    <a href="post.html">Sample Post</a>
-                </li>
-                <li>
-                    <a href="contact.html">Contact</a>
-                </li>
+                @foreach(App\Kategori::all() as $kategori)
+                    <li>
+                        <a href="/kategoriler/{{$kategori->slug}}">{{$kategori->baslik}}</a>
+                    </li>
+                @endforeach
             </ul>
         </div>
         <!-- /.navbar-collapse -->
     </div>
     <!-- /.container -->
 </nav>
-
 <!-- Page Header -->
 <header class="intro-header" style="background-image: url({{asset('img/home-bg.jpg')}})">
     <div class="container">
@@ -161,7 +153,7 @@
 <footer id="myFooter">
     <div class="container">
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-3 col-sm-offset-1    ">
                 <ul>
                     <li><a href="https://bau.edu.tr/icerik/2591-idari-birimler">İdari Birimler</a></li>
                     <li><a href="https://bau.edu.tr/icerik/2432-bahcesehir-universitesi-akademik-takvim">Akademik
@@ -182,18 +174,12 @@
                     <li><a href="#">İletişim ve Ulaşım</a></li>
                 </ul>
             </div>
-            <div class="col-sm-3 info">
-                <img src="{{asset("img/bau2.jpg")}}" alt="" class="logo" width="250px" height="auto">
-                <div class="social-icons" style="padding: 10px">
-                    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                    <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
-                </div>
+            <div class="col-sm-2 info">
+                <img src="{{asset("img/bau1.png")}}" alt="" class="logo" width="100px" height="auto">
             </div>
         </div>
     </div>
 </footer>
-
 
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -214,7 +200,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/js/bootstrap-select.min.js"></script>
 <script src="{{asset("js/laravel-delete.js")}}"></script>
 <script src="{{asset("js/clean-blog.js")}}"></script>
-<script src="{{asset("js/custom.js")}}"></script>
+<script type='text/javascript' src="{{asset("js/custom.js")}}"></script>
 
 </body>
 

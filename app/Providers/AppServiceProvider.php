@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Carbon\Carbon;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
@@ -15,6 +16,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        setlocale(LC_TIME, "tr-TR");
+        Carbon::setLocale("tr");
+
         config()->set("ayarlar", \App\Ayar::lists("value", "name")->all());
 
         $this->app["form"]->component('bsText', 'form_component.text', ['name', 'label_name', 'value' => null, 'attributes' => []]);

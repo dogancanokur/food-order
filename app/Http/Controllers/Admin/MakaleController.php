@@ -53,7 +53,8 @@ class MakaleController extends Controller
         $request->merge([
             'slug' => str_slug($request->baslik),
             'user_id' => Auth::user()->id,
-            'durum' => 0
+            'durum' => 1
+            //durum için switch yapılabilir ajaxla
         ]);
         $input = $request->all();
 
@@ -108,4 +109,11 @@ class MakaleController extends Controller
     {
         //
     }
+
+    //   public function durumDegis(Request $request)
+    //   {
+    //       $id = $request->id;
+    //       $durum = ($request->durum == true) ? 1 : 0;
+    //       Makale::find($id)->update(["durum" => $durum]);
+    // }
 }
