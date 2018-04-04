@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="m-b-40 text-center">
-                    <a href="/makale/create" class="btn btn-danger">
+                    <a href="/makale/create" class="btn btn-primary">
                         <i class="fa fa-plus"></i>
                         YENİ MAKALE EKLE
                     </a>
@@ -14,7 +14,6 @@
                 <table class="table table-hover table-bordered">
                     <thead>
                     <tr>
-                        <th>Durum</th>
                         <th>Başlık</th>
                         <th>Slug</th>
                         <th>Kategori</th>
@@ -26,10 +25,6 @@
                     <tbody>
                     @foreach($makaleler as $makale)
                         <tr>
-                            <td>
-                                <input type="checkbox" class="durum" data-id="{{$makale->id}}"
-                                       data-url="/makale/durum-degis" {{$makale->durum ? "checked" : null}} >
-                            </td>
                             <td>{{$makale->baslik}}</td>
                             <td>{{$makale->slug}}</td>
                             <td>{{$makale->kategori->baslik}}</td>
