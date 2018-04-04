@@ -57,7 +57,8 @@
 <body data-status="{{Session::get("durum")}}">
 
 <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+<nav class="navbar navbar-default navbar-fixed-top">
 
     <div class="container-fluid" id="topbar">
         <div class="row">
@@ -68,13 +69,13 @@
                         <li><a href="/login" class="uyelik-tus"><i class="fa fa-sign-in"></i> Üye Girişi</a></li>
                         <li><a href="/register" class="uyelik-tus"><i class="fa fa-users"></i> Üye Ol</a></li>
                     @else
-                        <li class="dropdown">
+                        <li class="ddown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-expanded="false">
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
-                            <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                            <ul class="ddown-menu ddown-menu-right" role="menu">
                                 @if(Auth::user()->yetkisi_var_mi("admin"))
                                     <li><a href="{{ url('/site-ayarlari') }}"><i class="fa fa-btn fa-wrench"></i>Site
                                             Ayarları</a></li>
@@ -102,33 +103,31 @@
             </div>
         </div>
     </div>
+
     <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                Menu <i class="fa fa-bars"></i>
-            </button>
+        <div class="navbar-header">
             <a href="{!! config("ayarlar.baslik") !!}}" class=""></a>
             <img src="{{asset("img/bau2.png")}}" alt="" class="navbar-brand" width="150px"
                  style="padding: 0px; margin-left: 15px;margin-top: 10px">
-    q
         </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                @foreach(App\Kategori::all() as $kategori)
-                    <li>
-                        <a href="/kategoriler/{{$kategori->slug}}">{{$kategori->baslik}}</a>
-                    </li>
-                @endforeach
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
+        <ul class="nav navbar-nav" style="float: right;">
+            @foreach(App\Kategori::all() as $kategori)
+                <li class="ddown">
+                    <button href="/kategoriler/{{$kategori->slug}}" class="dbtn">{{$kategori->baslik}}</button>
+                    <ul class="ddown-content">
+                        @foreach(App\Makale::where("kategori_id", $kategori->id)->where("durum", 1)->orderBy("created_at", "desc")->paginate(10) as $makale)
+                            <li>
+                                <a href="/{{$makale->slug}}">{{$makale->baslik}}</a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </li>
+            @endforeach
+        </ul>
     </div>
-    <!-- /.container -->
 </nav>
+
+<!-- /.navbar-collapse -->
 <!-- Page Header -->
 <header class="intro-header" style="background-image: url({{asset('img/home-bg.jpg')}})">
     <div class="container">

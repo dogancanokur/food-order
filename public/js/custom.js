@@ -52,7 +52,7 @@ $(function(){
     });
 
 
-    $('#selectpicker').selectpicker({
+    $('selectpicker').selectpicker({
         style: 'btn-default'
     });
     //

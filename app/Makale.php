@@ -12,6 +12,11 @@ class Makale extends Model
         "baslik",
         "slug",
         "icerik",
+
+        "enbaslik",
+        "enslug",
+        "enicerik",
+
         "user_id",
         "kategori_id",
         "durum"

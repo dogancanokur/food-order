@@ -14,7 +14,7 @@
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/tr', 'HomeController@index');
 Route::get('/', 'HomeController@index');
 
 Route::group(["middleware" => ["admin_mi", "auth"]], function () {
@@ -26,21 +26,20 @@ Route::group(["middleware" => ["admin_mi", "auth"]], function () {
         Route::resource("user", "UserController");
         Route::resource("kategori", "KategoriController");
         Route::resource("makale", "MakaleController");
-        Route::post("/makale/durum-degis", "MakaleController@durumDegis");
 
     });
 });
 
-Route::group(["middleware" => ["yazar_mi", "auth"]], function () {
+Route::get("/tr/{slug}","MakaleController@index");
+Route::get("/tr/kategoriler/{slug}","KategoriController@index");
 
-    Route::group(["namespace" => "Yazar"], function () {
+/*
+ *
+ * ENGLISH EDITION
+ *
+ *
+ */
 
-        Route::resource("makalem", "MakaleController");
 
-    });
-});
-
-
-
-Route::get("/{slug}","MakaleController@index");
-Route::get("/kategoriler/{slug}","KategoriController@index");
+Route::get('/en','EnHomeController@index');
+//Route::get('/en/makale','EnMakaleController@index');

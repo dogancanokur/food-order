@@ -1,68 +1,65 @@
-#topbar
-{
-    background: rgba(0,0,0,0.5);
-    color:#fff;
+#topbar {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
     font-size: 14px;
 
     text-align: right;
 }
-#topbar ul
-{
+
+#topbar ul {
     margin: 0px;
     padding: 10px;
 }
-#topbar li
-{
+
+#topbar li {
 
     display: inline-block;
     list-style-type: none;
 }
-#topbar li a
-{
+
+#topbar li a {
     color: #bbb;
     display: inline-block;
     margin-left: 15px;
     text-decoration: none;
 
 }
-#topbar li a:hover
-{
-    color:#fff
+
+#topbar li a:hover {
+    color: #fff
 }
-#topbar li a i
-{
+
+#topbar li a i {
     display: inline-block;
     margin-right: 5px;
 }
-#topbar .uyelik-tus
-{
+
+#topbar .uyelik-tus {
     color: #fff;
 
 }
-#topbar .uyelik-tus:hover
-{
+
+#topbar .uyelik-tus:hover {
     color: #0085A1;
 
 }
-.mavi-back
-{
+
+.mavi-back {
     background: #0085A1;
 }
 
-nav .dropdown-menu
-{
+nav .dropdown-menu {
     margin-top: 40px;
-    top:30px;
+    top: 30px;
     text-align: right;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0, 0, 0, 0.8);
 }
-nav .dropdown-menu li a:hover
-{
+
+nav .dropdown-menu li a:hover {
     background: #0085A1;
 }
 
-.eylem
-{
+.eylem {
     font-size: 20px;
     padding: 10px;
     padding-bottom: 5px;
@@ -73,28 +70,88 @@ nav .dropdown-menu li a:hover
     line-height: 22px;
     text-align: center;
 }
-.m-b-20
-{
+
+.mainortalama {
+    margin: auto;
+}
+
+.m-b-20 {
     margin-bottom: 20px;
 }
-.m-b-40
-{
+
+.m-b-40 {
     margin-bottom: 40px;
 }
 
-input[type=file]
-{
+input[type=file] {
     width: 100%;
     padding: 8px 10px;
     font-size: 14px;
     border: 1px solid #ccc;
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
     border-radius: 4px;
 }
 
-li.divider
-{
+li.divider {
     display: block !important;
     background-color: #333 !important;
 
 }
+
+/* Dropdown Button */
+.dbtn {
+    background-color: #F8F8F8;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    color: black;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.ddown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.ddown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    right: 0;
+}
+
+/* Links inside the dropdown */
+.ddown-content a {
+    color: black;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.ddown-content a:hover {
+    background-color: #ddd
+}
+
+/* Show the dropdown menu on hover */
+.ddown:hover .ddown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.ddown:hover .dbtn {
+    background-color: #3e8e41;
+}
+
+
+
+
+
