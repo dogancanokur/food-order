@@ -20,12 +20,22 @@ class AyarController extends Controller
 
         $this->validate($request, [
             "baslik" => "required",
+            "enbaslik" => "required",
+            "iceriktitle" => "required",
+            "eniceriktitle" => "required",
+            "subiceriktitle" => "required",
+            "ensubiceriktitle" => "required",
             "author" => "required",
             "aciklama" => "required",
             "keywords" => "required",
         ]);
 
         Ayar::find(1)->update(["value" => $request->baslik]);
+        Ayar::find(1)->update(["value" => $request->enbaslik]);
+        Ayar::find(1)->update(["value" => $request->iceriktitle]);
+        Ayar::find(1)->update(["value" => $request->eniceriktitle]);
+        Ayar::find(1)->update(["value" => $request->subiceriktitle]);
+        Ayar::find(1)->update(["value" => $request->ensubiceriktitle]);
         Ayar::find(2)->update(["value" => $request->author]);
         Ayar::find(3)->update(["value" => $request->aciklama]);
         Ayar::find(4)->update(["value" => $request->keywords]);

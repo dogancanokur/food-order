@@ -6,7 +6,12 @@
  * Time: 22:57
  */
 return [
-    "baslik" => "Başlık",
+    "baslik" => "Türkçe Title",
+    "enbaslik" => "İngilizce Title",
+    "iceriktitle" => "Türkçe Sayfa Başlığı",
+    "eniceriktitle" => "İngilizce Sayfa Başlığı",
+    "subiceriktitle" => "Türkçe Sayfa Alt Başlığı",
+    "ensubiceriktitle" => "İngilizce Sayfa Alt Başlığı",
     "author" => "Yazar",
     "aciklama" => "Açıklama",
     "keywords" => "Keywords",

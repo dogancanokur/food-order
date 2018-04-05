@@ -15,7 +15,6 @@ class CreateAyarsTable extends Migration
         Schema::create('ayarlar', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('enname');
             $table->string('value');
             $table->timestamps();
         });

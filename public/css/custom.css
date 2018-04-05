@@ -67,7 +67,10 @@ li.divider {
 .icerik-container{
     margin-bottom: 50px;
 }
-
+.reformat{
+    color: black;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 .menu-ayar{
     margin-top: 10px;
 }

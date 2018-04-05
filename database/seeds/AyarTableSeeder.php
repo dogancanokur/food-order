@@ -13,6 +13,11 @@ class AyarTableSeeder extends Seeder
     public function run()
     {
         Ayar::create(["name" => "baslik", "value" => "Bahçeşehir Üniversitesi IT"]);
+        Ayar::create(["name" => "enbaslik", "value" => "Bahcesehir University IT"]);
+        Ayar::create(["name" => "iceriktitle", "value" => "Bahcesehir Üniversitesi Bilgi İşlem"]);
+        Ayar::create(["name" => "eniceriktitle", "value" => "Bahcesehir University IT"]);
+        Ayar::create(["name" => "subiceriktitle", "value" => "Bahcesehir Üniversitesi Bilgi İşlem Sayfası"]);
+        Ayar::create(["name" => "ensubiceriktitle", "value" => "Bahcesehir University IT page"]);
         Ayar::create(["name" => "author", "value" => "Bahçeşehir Üniversitesi IT"]);
         Ayar::create(["name" => "aciklama", "value" => "Bahçeşehir Üniversitesi IT"]);
         Ayar::create(["name" => "keywords", "value" => "bahçeşehir üniversitesi, IT, bau"]);

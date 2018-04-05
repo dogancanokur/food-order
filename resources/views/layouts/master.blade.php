@@ -81,9 +81,34 @@
                                     <a href="/{{$makale->slug}}">{{$makale->baslik}}</a>
                                 </li>
                             @endforeach
+
                         </ul>
                     </li>
                 @endforeach
+
+                    @if(!Auth::guest())
+                        <li class="dropdown">
+                            <a href="#" class="menu-ayar dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                @if(Auth::user()->yetkisi_var_mi("admin"))
+                                    <li><a href="{{ url('/site-ayarlari') }}"><i class="fa fa-btn fa-wrench"></i>Site Ayarları</a></li>
+                                    <li><a href="{{ url('/user') }}"><i class="fa fa-btn fa-users"></i>Kullanıcılar</a></li>
+                                    <li><a href="{{ url('/kategori') }}"><i class="fa fa-btn fa-cube"></i>Kategoriler</a></li>
+                                    <li><a href="{{ url('/makale') }}"><i class="fa fa-btn fa-list-ol"></i>Tüm Makaleler</a></li>
+                                    <li><a href="{{ url('/talep') }}"><i class="fa fa-btn fa-envelope-o"></i>Yazarlık Talepleri</a></li>
+                                    <li class="divider"></li>
+                                @endif
+                                @if(Auth::user()->yetkisi_var_mi("admin"))
+                                    <li><a href="{{ url('/makalem') }}"><i class="fa fa-btn fa-list"></i>Makalelerim</a></li>
+                                    <li><a href="{{ url('/makalem/create') }}"><i class="fa fa-btn fa-plus"></i>Yeni Makale Ekle</a></li>
+                                @endif
+                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Çıkış</a></li>
+                            </ul>
+                        </li>
+                    @endif
                 <li><a class="menu-ayar"  href="/en">EN</a></li>
             </ul>
         </div>
@@ -97,11 +122,11 @@
 <header class="intro-header" style="background-image: url({{asset('img/home-bg.jpg')}})">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="col-lg-10 col-lg-offset-1 col-md-12">
                 <div class="site-heading">
-                    <h1>BAU IT</h1>
+                    <h1 class="reformat">{!!config("ayarlar.iceriktitle") !!}</h1>
                     <hr class="small">
-                    <span class="subheading">Bahçeşehir üniversitesi IT</span>
+                    <span class="subheading reformat">{!!config("ayarlar.subiceriktitle") !!}</span>
                 </div>
             </div>
         </div>

@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{{asset("css/custom.css")}}">
     <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
 
-    <title> {!!config("ayarlar.baslik") !!}</title>
+    <title> {!!config("ayarlar.enbaslik") !!}</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{asset("css/modern-business.css")}}" rel="stylesheet">
     <!-- Theme CSS -->
@@ -93,14 +93,15 @@
 
 <!-- /.navbar-collapse -->
 <!-- Page Header -->
+
 <header class="intro-header" style="background-image: url({{asset('img/home-bg.jpg')}})">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="col-lg-10 col-lg-offset-1 col-md-12">
                 <div class="site-heading">
-                    <h1>BAU IT</h1>
+                    <h1 class="reformat">{!!config("ayarlar.eniceriktitle") !!}</h1>
                     <hr class="small">
-                    <span class="subheading">Bahçeşehir üniversitesi IT</span>
+                    <span class="subheading reformat">{!!config("ayarlar.ensubiceriktitle") !!}</span>
                 </div>
             </div>
         </div>
