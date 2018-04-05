@@ -66,14 +66,14 @@
             </button>
             <a href="{!! config("ayarlar.baslik") !!}}" class=""></a>
             <img src="{{asset("img/bau2.png")}}" alt="" class="navbar-brand" width="150px"
-                 style="padding: 0px; margin-left: 15px;margin-top: 10px">
+                 style="padding: 0px; margin-left: 15px;margin-top: 10px; margin-bottom:10px;">
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 @foreach(App\Kategori::all() as $kategori)
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{$kategori->baslik}}<b
+                        <a href="#" class="menu-ayar dropdown-toggle" data-toggle="dropdown">{{$kategori->baslik}}<b
                                     class="caret"></b></a>
                         <ul class="dropdown-menu">
                             @foreach(App\Makale::where("kategori_id", $kategori->id)->where("durum", 1)->orderBy("created_at", "desc")->paginate(10) as $makale)
@@ -84,7 +84,7 @@
                         </ul>
                     </li>
                 @endforeach
-                <li><a href="/EN">EN</a></li>
+                <li><a class="menu-ayar"  href="/en">EN</a></li>
             </ul>
         </div>
     </div>
@@ -115,10 +115,10 @@
 <hr>
 
 <!-- Footer -->
-<footer>
-    <div class="containe myfooter">
+<footer class="myfooter">
+    <div class="container">
         <div class="row">
-            <div class="col-sm-3 col-sm-offset-1    ">
+            <div class="footer-div col-sm-3 col-sm-offset-1    ">
                 <ul>
                     <li><a href="https://bau.edu.tr/icerik/2591-idari-birimler">İdari Birimler</a></li>
                     <li><a href="https://bau.edu.tr/icerik/2432-bahcesehir-universitesi-akademik-takvim">Akademik
@@ -126,20 +126,20 @@
                     <li><a href="https://bau.edu.tr/icerik/2983-burslar-ve-ucretler">Burslar ve Ücretler</a></li>
                 </ul>
             </div>
-            <div class="col-sm-3">
+            <div class="footer-div col-sm-3">
                 <ul>
                     <li><a href="#">Yüksek Lisans ve Doktora</a></li>
                     <li><a href="#">BAU E-Posta</a></li>
                     <li><a href="#">Fakülte ve Okullar</a></li>
                 </ul>
             </div>
-            <div class="col-sm-3">
+            <div class="footer-div col-sm-3">
                 <ul>
                     <li><a href="#">SSS</a></li>
                     <li><a href="#">İletişim ve Ulaşım</a></li>
                 </ul>
             </div>
-            <div class="col-sm-2 info">
+            <div class="footer-div col-sm-2 info">
                 <img src="{{asset("img/bau1.png")}}" alt="" class="logo" width="100px" height="auto">
             </div>
         </div>

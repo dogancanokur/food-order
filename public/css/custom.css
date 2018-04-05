@@ -38,7 +38,8 @@ li.divider {
 }
 
 .myfooter {
-    background-color: #222222;
+    border: 1px solid;
+    padding: 10px;
 }
 
 /* Custom page CSS
@@ -51,10 +52,10 @@ li.divider {
     max-width: 680px;
     padding: 0 15px;
 }
+
 .footer-text-muted {
     margin: 20px 0;
 }
-
 
 /*!
  * Start Bootstrap - Modern Business (http://startbootstrap.com/)
@@ -63,7 +64,13 @@ li.divider {
  */
 
 /* Global Styles */
+.icerik-container{
+    margin-bottom: 50px;
+}
 
+.menu-ayar{
+    margin-top: 10px;
+}
 html,
 body {
     height: 100%;
@@ -127,14 +134,14 @@ header.carousel .fill {
 
 /* Responsive Styles */
 
-@media(max-width:991px) {
+@media (max-width: 991px) {
     .customer-img,
     .img-related {
         margin-bottom: 30px;
     }
 }
 
-@media(max-width:767px) {
+@media (max-width: 767px) {
     .img-portfolio {
         margin-bottom: 15px;
     }
@@ -154,12 +161,14 @@ header.carousel .fill {
     -o-background-size: cover;
     margin-bottom: 50px;
 }
+
 .intro-header .site-heading,
 .intro-header .post-heading,
 .intro-header .page-heading {
     padding: 100px 0 50px;
     color: white;
 }
+
 @media only screen and (min-width: 768px) {
     .intro-header .site-heading,
     .intro-header .post-heading,
@@ -167,15 +176,18 @@ header.carousel .fill {
         padding: 150px 0;
     }
 }
+
 .intro-header .site-heading,
 .intro-header .page-heading {
     text-align: center;
 }
+
 .intro-header .site-heading h1,
 .intro-header .page-heading h1 {
     margin-top: 0;
     font-size: 50px;
 }
+
 .intro-header .site-heading .subheading,
 .intro-header .page-heading .subheading {
     font-size: 24px;
@@ -185,40 +197,61 @@ header.carousel .fill {
     font-weight: 300;
     margin: 10px 0 0;
 }
+
 @media only screen and (min-width: 768px) {
     .intro-header .site-heading h1,
     .intro-header .page-heading h1 {
         font-size: 80px;
     }
 }
+
 .intro-header .post-heading h1 {
     font-size: 35px;
 }
+
 .intro-header .post-heading .subheading,
 .intro-header .post-heading .meta {
     line-height: 1.1;
     display: block;
 }
+
 .intro-header .post-heading .subheading {
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 24px;
     margin: 10px 0 30px;
     font-weight: 600;
 }
+
 .intro-header .post-heading .meta {
     font-family: 'Lora', 'Times New Roman', serif;
     font-style: italic;
     font-weight: 300;
     font-size: 20px;
 }
+
 .intro-header .post-heading .meta a {
     color: white;
 }
+
 @media only screen and (min-width: 768px) {
     .intro-header .post-heading h1 {
         font-size: 55px;
     }
+
     .intro-header .post-heading .subheading {
         font-size: 30px;
     }
+}
+
+.post-title {
+    color: black;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-align: center;
+}
+
+.post-content {
+    color: black;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    border: black 1px;
+    text-align: justify;
 }
