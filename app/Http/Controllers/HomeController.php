@@ -26,4 +26,7 @@ class HomeController extends Controller
     {
         return view('anasayfa',compact('makaleler'));
     }
+    public function guide(){
+        return view('guide');
+    }
 }

@@ -79,7 +79,7 @@
                         <ul class="dropdown-menu">
                             @foreach(App\Makale::where("kategori_id", $kategori->id)->where("durum", 1)->orderBy("created_at", "desc")->paginate(10) as $makale)
                                 <li>
-                                    <a href="/{{$makale->enslug}}">{{$makale->enbaslik}}</a>
+                                    <a href="/en/{{$makale->enslug}}">{{$makale->enbaslik}}</a>
                                 </li>
                             @endforeach
                         </ul>

@@ -113,6 +113,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::destroy($id);
+
+        Session::flash("durum", 1);
+
+        return redirect("/user");
     }
 }

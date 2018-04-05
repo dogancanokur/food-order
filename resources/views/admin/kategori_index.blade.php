@@ -42,7 +42,7 @@
 
                             <td>
                                 <a href="/kategori/{{$kategori->id}}/edit" class="btn btn-primary eylem"
-                                   data-toggle="tooltip" title="Düzenle"><i class="fa fa-edit"></i></a>
+                                   data-toggle="tooltip" title="Düzenle"><i class="fa fa-edit"></i></a>{!! csrf_field() !!}
                                 <a href="/kategori/{{$kategori->id}}" class="btn btn-danger eylem" data-toggle="tooltip"
                                    title="Sil" data-method="delete" data-confirm="Emin misin?"><i
                                             class="fa fa-remove"></i></a>

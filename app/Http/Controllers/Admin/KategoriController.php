@@ -106,7 +106,8 @@ class KategoriController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            "baslik" => "required|max:255"
+            "baslik" => "required|max:255",
+            "enbaslik" => "required|max:255"
         ]);
 //SLUG EKLEME
         $request->merge([
@@ -116,15 +117,6 @@ class KategoriController extends Controller
 
         $kategori = Kategori::find($id);
         $kategori->update($request->all());
-
-        //   if ($resim = $request->file("resim")) {
-        //       $resim_isim = $kategori->resim->isim;
-        //       $thumb = "thumb_" . $kategori->resim->isim;
-
-        //       Image::make($resim->getRealPath())->fit(1900, 872)->fill(array(0, 0, 0, 0.5))->save(public_path("uploads/" . $resim_isim));
-        //       Image::make($resim->getRealPath())->fit(600, 400)->save(public_path("uploads/" . $thumb));
-
-        //   }
 
         Session::flash("durum", 1);
         return redirect("/kategori");
@@ -143,8 +135,6 @@ class KategoriController extends Controller
 
         // unlink(public_path("uploads/".$kategori_resim));
         // unlink(public_path("uploads/thumb_".$kategori_resim));
-
-        Resim::where("imageable_id", $id)->where("imageable_type", "App\Kategori")->delete();
 
         Kategori::destroy($id);
 

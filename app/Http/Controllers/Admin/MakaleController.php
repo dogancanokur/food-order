@@ -45,8 +45,10 @@ class MakaleController extends Controller
     {
         $this->validate($request, [
             "baslik" => "required|max:255",
+            "enbaslik" => "required|max:255",
             "kategori_id" => "required",
-            "icerik" => "required"
+            "icerik" => "required",
+            "enicerik" => "required"
 
         ]);
 
@@ -85,7 +87,10 @@ class MakaleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $makale = Makale::find($id);
+        $kategoriler = Kategori::lists("baslik","id")->all();
+
+        return view("admin.makale_edit",compact('makale','kategoriler'));
     }
 
     /**
@@ -98,6 +103,23 @@ class MakaleController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $this->validate($request,[
+            "baslik" => "required|max:255",
+            "enbaslik" => "required|max:255",
+            "icerik" => "required",
+            "enicerik" => "required",
+            "kategori_id" => "required"
+        ]);
+        $request->merge([
+            'slug' => str_slug($request->baslik),
+            'enslug' => str_slug($request->enbaslik)
+        ]);
+        $input = $request->all();
+        $makale = Makale::find($id);
+        $makale->update($input);
+
+        Session::flash("durum",1);
+        return redirect("/makale");
     }
 
     /**
@@ -109,6 +131,11 @@ class MakaleController extends Controller
     public function destroy($id)
     {
         //
+        Makale::destroy($id);
+
+        Session::flash("durum",1);
+
+        return redirect("/makale");
     }
 
     //   public function durumDegis(Request $request)

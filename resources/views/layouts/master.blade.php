@@ -12,7 +12,6 @@
 
     <script src="{{asset("vendor/jquery/jquery.js")}}"></script>
 
-
     <link rel="stylesheet" href="{{asset("css/custom.css")}}">
     <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
 
@@ -43,8 +42,9 @@
 
     <![endif]-->
 
+
     <script>
-        window.csrfToken = " {{ csrf_token() }}";
+        window.csrfToken = "{{ csrf_token() }}"
     </script>
 </head>
 
@@ -78,7 +78,7 @@
                         <ul class="dropdown-menu">
                             @foreach(App\Makale::where("kategori_id", $kategori->id)->where("durum", 1)->orderBy("created_at", "desc")->paginate(10) as $makale)
                                 <li>
-                                    <a href="/{{$makale->slug}}">{{$makale->baslik}}</a>
+                                    <a href="/tr/{{$makale->slug}}">{{$makale->baslik}}</a>
                                 </li>
                             @endforeach
 
@@ -94,18 +94,14 @@
 
                             <ul class="dropdown-menu dropdown-menu-right" role="menu">
                                 @if(Auth::user()->yetkisi_var_mi("admin"))
-                                    <li><a href="{{ url('/site-ayarlari') }}"><i class="fa fa-btn fa-wrench"></i>Site Ayarları</a></li>
-                                    <li><a href="{{ url('/user') }}"><i class="fa fa-btn fa-users"></i>Kullanıcılar</a></li>
-                                    <li><a href="{{ url('/kategori') }}"><i class="fa fa-btn fa-cube"></i>Kategoriler</a></li>
-                                    <li><a href="{{ url('/makale') }}"><i class="fa fa-btn fa-list-ol"></i>Tüm Makaleler</a></li>
-                                    <li><a href="{{ url('/talep') }}"><i class="fa fa-btn fa-envelope-o"></i>Yazarlık Talepleri</a></li>
+                                    <li><a href="{{ url('/site-ayarlari') }}"><i class="fa fa-btn fa-wrench"></i> Site Ayarları</a></li>
+                                    <li><a href="{{ url('/user') }}"><i class="fa fa-btn fa-users"></i> Kullanıcılar</a></li>
+                                    <li><a href="{{ url('/kategori') }}"><i class="fa fa-btn fa-cube"></i> Kategoriler</a></li>
                                     <li class="divider"></li>
+                                    <li><a href="{{ url('/makale') }}"><i class="fa fa-btn fa-list"></i> Alt Başlıklar</a></li>
+                                    <li><a href="{{ url('/makale/create') }}"><i class="fa fa-btn fa-plus"></i> Yeni Alt Başlık Ekle</a></li>
                                 @endif
-                                @if(Auth::user()->yetkisi_var_mi("admin"))
-                                    <li><a href="{{ url('/makalem') }}"><i class="fa fa-btn fa-list"></i>Makalelerim</a></li>
-                                    <li><a href="{{ url('/makalem/create') }}"><i class="fa fa-btn fa-plus"></i>Yeni Makale Ekle</a></li>
-                                @endif
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Çıkış</a></li>
+                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i> Çıkış</a></li>
                             </ul>
                         </li>
                     @endif

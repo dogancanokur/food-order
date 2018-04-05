@@ -39,6 +39,7 @@ li.divider {
 
 .myfooter {
     border: 1px solid;
+    margin-top: 60px;
     padding: 10px;
 }
 
@@ -152,6 +153,9 @@ header.carousel .fill {
     header.carousel .carousel {
         height: 70%;
     }
+}
+.reformatdiv{
+    min-height: 500px;
 }
 
 .intro-header {

@@ -26,12 +26,15 @@ Route::group(["middleware" => ["admin_mi", "auth"]], function () {
         Route::resource("user", "UserController");
         Route::resource("kategori", "KategoriController");
         Route::resource("makale", "MakaleController");
+        Route::resource("guide", "HomeController@guide");
 
     });
 });
 
 Route::get("/tr/{slug}","MakaleController@index");
 Route::get("/tr/kategoriler/{slug}","KategoriController@index");
+
+
 
 /*
  *
@@ -42,4 +45,4 @@ Route::get("/tr/kategoriler/{slug}","KategoriController@index");
 
 
 Route::get('/en','EnHomeController@index');
-//Route::get('/en/makale','EnMakaleController@index');
+Route::get('/en/{slug}','EnMakaleController@index');
